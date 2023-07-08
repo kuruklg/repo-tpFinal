@@ -5,7 +5,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
    <link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-   <link rel="icon" th:href="@{/index-images/icono.ico}">
+   <link rel="icon" th:href="@{/index-images/icono2.png}">
    <title>Header</title>
 </head>
 <body>
@@ -13,40 +13,43 @@
 	<header>
 		<nav class="navbar navbar-expand-lg">
 		  <div class="container">
-		  	<img th:src="@{/index-images/icono2.png}" width="30" height="24" class="me-2">
-		    <a class="navbar-brand me-4" href="#">Vital</a>
+		  	<img th:src="@{/index-images/icono2.png}" width="50" height="50" class="me-3">
+		    <a class="navbar-brand me-4" th:href="@{/inicio}">VITAL</a>
 		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		      <span class="navbar-toggler-icon"></span>
 		    </button>
 		    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		        <li class="nav-item">
-		          <a class="nav-link" aria-current="page" href="#">Inicio</a>
+		          <a class="nav-link" th:href="@{/inicio}">Inicio</a>
 		        </li>
 		        <li class="nav-item dropdown">
 		          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 		            Servicios
 		          </a>
 		          <ul class="dropdown-menu">
-		            <li><a class="dropdown-item" href="#">Calcular IMC</a></li>
+		            <li><a class="dropdown-item" th:href="@{/servicio/calcular-IMC}">Calcular IMC</a></li>
 		            <li><hr class="dropdown-divider"></li>
-		            <li><a class="dropdown-item" href="#">Peso Ideal</a></li>
+		            <li><a class="dropdown-item" th:href="@{/servicio/peso-ideal}">Peso Ideal</a></li>
 		          </ul>
 		        </li>
 		        <li class="nav-item">
-		          <a class="nav-link" aria-current="page" href="#">Recetas</a>
+		          <a class="nav-link" th:href="@{/recetas}">Recetas</a>
 		        </li>
 		        <li class="nav-item">
-		          <a class="nav-link" aria-current="page" href="#">Testimonios</a>
+		          <a class="nav-link" aria-current="page" th:href="@{/testimonios}">Testimonios</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" aria-current="page" th:href="@{/contacto}">Contactanos</a>
 		        </li>
 		        <li class="nav-item dropdown">
 		          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 		            Gestion de Datos
 		          </a>
 		          <ul class="dropdown-menu">
-		            <li><a class="dropdown-item" href="#">Calcular IMC</a></li>
+		            <li><a class="dropdown-item" th:href="@{/gestion}">Gestion de Recetas</a></li>
 		            <li><hr class="dropdown-divider"></li>
-		            <li><a class="dropdown-item" href="#">Peso Ideal</a></li>
+		            <li><a class="dropdown-item" th:href="@{/gestion}">Gestion de Ingredientes</a></li>
 		          </ul>
 		        </li>
 		      </ul>
