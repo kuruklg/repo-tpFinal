@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+   <link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+   <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+   <link rel="icon" th:href="@{/index-images/icono2.png}">
+   <title>Gestion de Recetas</title>
+</head>
+<body>
+	
+	<header th:replace="~{layouts/header :: header}"></header>
+	
+	<div class="container-fluid">
+		<div class="container m-auto">
+			<div class="formulario-receta">
+				<form th:action="@{/recetas}" th:object="${receta}" method="post">
+				  <div class="mb-3">
+				    <label for="nombre">Nombre de la receta:</label>
+				    <input class="form-control" type="text" id="nombre" name="nombre" th:field="*{nombre}" />
+				  </div>
+				
+				  <div class="mb-3">
+				    <label for="categoria">Categoría:</label>
+				    <select class="form-select" id="categoria" name="categoria" th:field="*{categoria}">
+				      <option value="">Seleccione una categoría</option>
+				      <option value="Carnes">Recetas de Carnes</option>
+				      <option value="Bebidas">Recetas de Bebidas</option>
+				      <option value="Dulces">Recetas de Dulces</option>
+				      <option value="Ensaladas">Recetas de Ensaladas</option>
+				      <option value="Legumbres y Cereales">Recetas de Legumbres y Cereales</option>
+				      <option value="Pescados">Recetas de Pescados</option>
+				      <option value="Pan">Recetas de Pan</option>
+				      <option value="Sopas y Cremas">Recetas de Sopas y Cremas</option>
+				    </select>
+				  </div>
+				
+				  <div class="mb-3">
+				    <label for="ingredientes">Ingredientes:</label>
+				    <table id="ingredientesTable">
+				      <tr th:each="ingrediente, ingredienteStatus : *{ingredientes}">
+				        <td>
+				          <input class="form-control" type="text" th:id="'ingrediente' + ${ingredienteStatus.index}" th:name="'ingredientes[' + ${ingredienteStatus.index} + '].nombre'" th:field="*{ingredientes[__${ingredienteStatus.index}__].nombre}" />
+				        </td>
+				      </tr>
+				    </table>
+				    <button class="btn btn-sm btn-dark" type="button" onclick="agregarIngrediente()">Agregar Ingrediente</button>
+				  </div>
+				
+				  <div class="mb-3">
+				    <label for="preparacion">Preparación:</label>
+				    <input type="text" class="form-control" id="preparacion" name="preparacion" th:field="*{preparacion}">
+				  </div>
+				
+				  <div class="mb-3">
+				    <label for="imagen">Imagen:</label>
+				    <input class="form-control" type="file" id="imagen" name="imagen" />
+				  </div>
+				
+				  <div class="mb-3">
+				  	<button class="btn btn-sm btn-dark" type="submit">Guardar Receta</button>
+				  </div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+		
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+	
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
