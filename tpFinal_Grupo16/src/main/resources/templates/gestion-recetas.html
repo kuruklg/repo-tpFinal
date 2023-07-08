@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+   <link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+   <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+   <link rel="icon" th:href="@{/index-images/icono2.png}">
+   <title>Gestion de Recetas</title>
+</head>
+<body>
+	
+	<header th:replace="~{layouts/header :: header}"></header>
+	
+	<div class="gestion-recetas-container container-fluid">
+		<div class="container m-auto row">
+			<div class="cabecera col-12">
+				<h1>Gestion de Recetas</h1>
+			</div>
+			
+			<div class="col-12 recetas-container mb-3">
+				<div class="tabla-recetas">
+					<div class="table-responsive">
+						<table class="table">
+						  <thead>
+						    <tr>
+						      <th scope="col">#Id</th>
+						      <th scope="col">Nombre</th>
+						      <th scope="col">Categoria</th>
+						      <th scope="col">Handle</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th scope="row">1</th>
+						      <td>Mark</td>
+						      <td>Otto</td>
+						      <td>@mdo</td>
+						    </tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>		
+			</div>
+			
+			<div class="col-12 gestion-botones mb-3">
+				<a class="btn btn-sm btn-dark" th:href="@{/gestion-recetas/nuevo}">Agregar una Receta</a>
+			</div>
+			
+		</div>
+	</div>
+	
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+	
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
+
+
+</body>
+</html>
