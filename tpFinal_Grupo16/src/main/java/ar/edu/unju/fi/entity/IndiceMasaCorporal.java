@@ -53,7 +53,7 @@ public class IndiceMasaCorporal {
 	}
 	
 		
-	/* getter and setters */
+	/* getters and setters */
 	public Long getId() {
 		return id;
 	}
