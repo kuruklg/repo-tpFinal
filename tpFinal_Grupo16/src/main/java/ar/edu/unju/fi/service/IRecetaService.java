@@ -15,6 +15,9 @@ public interface IRecetaService {
 	List<Receta> listarRecetas();
 	
 	
+	String getCategoriaString(String categoria);
+	
+	
 	void guardarReceta(Receta receta);
 	
 	

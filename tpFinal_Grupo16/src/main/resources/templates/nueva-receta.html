@@ -15,10 +15,10 @@
 	<div class="container-fluid">
 		<div class="container m-auto">
 			<div class="formulario-receta">
-				<form th:action="@{/recetas}" th:object="${receta}" method="post">
+				<form th:action="@{/gestion-recetas/guardar}" th:object="${receta}" method="post">
 				  <div class="mb-3">
 				    <label for="nombre">Nombre de la receta:</label>
-				    <input class="form-control" type="text" id="nombre" name="nombre" th:field="*{nombre}" />
+				    <input class="form-control" type="text" id="nombre" name="nombre" th:field="*{nombre}">
 				  </div>
 				
 				  <div class="mb-3">
@@ -36,18 +36,23 @@
 				    </select>
 				  </div>
 				
-				  <div class="mb-3">
-				    <label for="ingredientes">Ingredientes:</label>
-				    <table id="ingredientesTable">
-				      <tr th:each="ingrediente, ingredienteStatus : *{ingredientes}">
-				        <td>
-				          <input class="form-control" type="text" th:id="'ingrediente' + ${ingredienteStatus.index}" th:name="'ingredientes[' + ${ingredienteStatus.index} + '].nombre'" th:field="*{ingredientes[__${ingredienteStatus.index}__].nombre}" />
-				        </td>
-				      </tr>
-				    </table>
-				    <button class="btn btn-sm btn-dark" type="button" onclick="agregarIngrediente()">Agregar Ingrediente</button>
-				  </div>
-				
+<!-- 				  <div class="mb-3"> -->
+<!-- 				    <label for="ingredientes">Ingredientes:</label> -->
+<!-- 				    <table id="ingredientesTable"> -->
+<!-- 				      <tr th:each="ingrediente, ingredienteStatus : *{ingredientes}"> -->
+<!-- 				        <td> -->
+<!-- 				          <input class="form-control" type="text" th:id="'ingrediente' + ${ingredienteStatus.index}" th:name="'ingredientes[' + ${ingredienteStatus.index} + '].nombre'" th:field="*{ingredientes[__${ingredienteStatus.index}__].nombre}" /> -->
+<!-- 				        </td> -->
+<!-- 				      </tr> -->
+<!-- 				    </table> -->
+<!-- 				    <button class="btn btn-sm btn-dark" type="button" onclick="agregarIngrediente()">Agregar Ingrediente</button> -->
+<!-- 				  </div> -->
+					
+<!-- 				  <div class="mb-3"> -->
+<!-- 				    <label for="preparacion">Preparación:</label> -->
+<!-- 				    <input type="text" class="form-control" id="preparacion" name="preparacion" th:field="*{preparacion}"> -->
+<!-- 				  </div> -->
+				  
 				  <div class="mb-3">
 				    <label for="preparacion">Preparación:</label>
 				    <input type="text" class="form-control" id="preparacion" name="preparacion" th:field="*{preparacion}">

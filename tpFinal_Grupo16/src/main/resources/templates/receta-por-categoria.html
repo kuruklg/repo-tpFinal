@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+   <link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+   <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+   <link rel="icon" th:href="@{/index-images/icono2.png}">
+   <title>Recetas</title>
+</head>
+<body>
+
+	<header th:replace="~{layouts/header :: header}"></header>
+	
+	<div class="recetas-container container-fluid">
+		<div class="container m-auto row">
+			
+			<div class="row px-0">
+				<div class="col-12 categoria-container">
+					<h4>Distintas Recetas</h4>
+				</div>
+				<div class="col-12">
+					<div class="row d-flex flex-wrap">
+						<div th:each="rec: ${recetas}" th:if="${rec.categoria} == ${categoria}" class="col-12 col-md-6 col-lg-4 card-receta-container">
+							<div class="card-receta">
+							  <img th:src="${rec.imagen}" class="card-img-top" alt="...">
+							  <div class="card-bodys mt-3">
+							    <div>
+							    	<h5 th:text="${rec.nombre}" class="card-title"></h5>
+							    	<p th:text="${rec.preparacion}" class="card-text"></p>
+							    </div>
+							    <div>
+							    	<a th:href="@{/recetas/listado/} + ${rec.id}" class="btn btn-dark">Ver Ingredientes</a>
+							    </div>
+							  </div>
+							</div>
+					    </div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+	
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

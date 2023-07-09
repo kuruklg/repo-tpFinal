@@ -14,28 +14,46 @@
 	
 	<div class="gestion-recetas-container container-fluid">
 		<div class="container m-auto row">
-			<div class="cabecera col-12">
+			<div class="cabecera col-12 mb-5">
 				<h1>Gestion de Recetas</h1>
+			</div>
+			
+			<div class="col-2 gestion-botones mb-3">
+				<a class="btn btn-sm btn-dark" th:href="@{/gestion-recetas/nuevo}">Agregar una Receta</a>
+			</div>
+			
+			<div class="col-10 gestion-botones mb-3">
+				<a class="btn btn-sm btn-dark" th:href="@{/gestion-recetas/nuevo-ingrediente}">Agregar un ingrediente a una receta</a>
 			</div>
 			
 			<div class="col-12 recetas-container mb-3">
 				<div class="tabla-recetas">
 					<div class="table-responsive">
-						<table class="table">
+						<table class="table table-striped table-bordered border-secondary align-middle">
 						  <thead>
-						    <tr>
+						    <tr class="text-center">
 						      <th scope="col">#Id</th>
 						      <th scope="col">Nombre</th>
 						      <th scope="col">Categoria</th>
-						      <th scope="col">Handle</th>
+						      <th scope="col">Preparacion</th>
+						      <th scope="col">Ingredientes</th>
+						      <th scope="col">Imagen</th>
 						    </tr>
 						  </thead>
 						  <tbody>
-						    <tr>
-						      <th scope="row">1</th>
-						      <td>Mark</td>
-						      <td>Otto</td>
-						      <td>@mdo</td>
+						    <tr th:each="rec: ${recetas}">
+						      <th th:text="${rec.id}"></th>
+						      <th th:text="${rec.nombre}"></th>
+						      <th th:text="${rec.categoria}"></th>
+						      <th th:text="${rec.preparacion}"></th>
+						      <th>
+						      	 <ul th:each="ingre: ${rec.ingredientes}">
+						      		<li th:text="${ingre.nombre}"></li>
+						      	</ul>
+						      </th>
+						      <th>
+						      	<img class="imagen-receta" th:src="${rec.imagen}">
+						      </th>
 						    </tr>
 						  </tbody>
 						</table>
@@ -43,9 +61,7 @@
 				</div>		
 			</div>
 			
-			<div class="col-12 gestion-botones mb-3">
-				<a class="btn btn-sm btn-dark" th:href="@{/gestion-recetas/nuevo}">Agregar una Receta</a>
-			</div>
+			
 			
 		</div>
 	</div>

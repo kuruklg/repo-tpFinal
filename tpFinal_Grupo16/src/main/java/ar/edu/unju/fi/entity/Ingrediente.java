@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,22 +25,23 @@ public class Ingrediente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ingre_id", nullable = false)
+	@Column(name = "ing_id", nullable = false)
 	private Long id;
 	
-	@Column(name = "ingre_nombre", nullable = false)
+	@Column(name = "ing_nombre", nullable = false)
 	private String nombre;
 	
 	/* Relacion muchos a uno */
-	@ManyToOne
-	@JoinColumn(name = "receta_id")
+	@ManyToOne()
+	@JoinColumn(name = "rec_id")
 	private Receta receta;
 	
 	public Ingrediente() {}
 
-	public Ingrediente(Long id, String nombre) {
+	public Ingrediente(Long id, String nombre, Receta receta) {
 		this.id = id;
 		this.nombre = nombre;
+		this.receta = receta;
 	}
 
 	public Long getId() {
@@ -57,5 +59,15 @@ public class Ingrediente {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	public Receta getReceta() {
+		return receta;
+	}
+
+	public void setReceta(Receta receta) {
+		this.receta = receta;
+	}
+	
+	
 	
 }
