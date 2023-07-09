@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head>
+		<meta charset="UTF-8">
+	   	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	   	<link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+	   	<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+	   	<link rel="icon" th:href="@{/index-images/icono2.png}">
+	   	<title>Registro</title>
+	</head>
+	<body>
+		<header th:replace="~{layouts/header :: header}"></header>
+		
+		<div class="registro-container container-fluid">
+			<div class="container m-auto row">
+				<div class="cabecera col-12">
+					<h1>Registrarse</h1>
+					<div>
+						<form action="#" th:action="@{/registro}" th:object="${usuario}" method="post">
+							<label for="nombre">Nombre:</label>
+							<input type="text" id="nombre" name="nombre" th:field="*{nombre}" required><br>
+							
+							<label for="apellido">Apellido:</label>
+							<input type="text" id="apellido" name="apellido" th:field="*{apellido}" required><br>
+
+							<label for="email">Email:</label>
+					        <input type="email" id="email" name="email" th:field="*{email}" required><br>
+					
+					        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+					        <input type="date" id="fechaNacimiento" name="fechaNacimiento" th:field="*{fechaNacimiento}" required><br>
+					
+					        <label for="telefono">Teléfono:</label>
+					        <input type="tel" id="telefono" name="telefono" th:field="*{telefono}" required><br>
+					
+					        <label for="sexo">Sexo:</label>
+					        <select id="sexo" name="sexo" th:field="*{sexo}" required>
+					            <option value="">Seleccione</option>
+					            <option value="M">Masculino</option>
+					            <option value="F">Femenino</option>
+					            <option value="O">Otro</option>
+					        </select><br>
+					
+					        <label for="estatura">Estatura:</label>
+					        <input type="number" id="estatura" name="estatura" th:field="*{estatura}" required><br>
+					        
+							<input type="submit" value="Registrarse">
+						</form>
+						
+						<!-- Mensaje y identificador de usuario -->
+	                    <div th:if="${idUsuario}" class="mensaje-identificador">
+	                        <p>Su identificador de usuario es: <span th:text="${idUsuario}"></span></p>
+	                    </div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
+	</body>
+</html>
