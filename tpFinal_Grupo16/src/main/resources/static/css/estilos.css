@@ -8,9 +8,10 @@
 }
 
 .container-fluid {
-	padding: 0;
+	padding: 30px 0px 150px 0px;
 /* 	margin: 0; */
 	min-height: calc(100vh - 60px);
+	background: #eeeee3;
 }
 
 .container {
@@ -25,7 +26,7 @@ nav .container a {
 }
 
 nav {
-	background: #00ae00;
+	background: #0f4b0e;
 }
 
 .nav-item a:hover {
@@ -53,7 +54,7 @@ nav {
 /* - - - - - FOOTER - - - - - -*/
 
 footer {
-	background: #004400;
+	background: #002d00;
 	color: #dedede;
 	padding: 30px 55px 10px 55px;
 }
@@ -92,5 +93,189 @@ footer {
 
 
 
+/* - - - - - - RECETAS - - - - - - - -*/
 
+.categoria-container {
+	background: #466b14;
+	height: 80px;
+	color: #fff;
+	letter-spacing: 2px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 12px;
+	margin-top: 15px !important;
+	margin-bottom: 15px;
+}
+
+.categoria-container h4 {
+	font-weight: bold;
+	font-size: 32px;
+}
+
+@media (max-width: 992px) {
+	.categoria-container h4 {
+		font-size: 22px;
+	}
+	.categoria-container {
+		height: 50px;
+	}
+	.card-bodys h5 {
+		font-size: 24px;
+	}
+	.card-text {
+		font-size: 20px;
+	}
+}
+
+.card-receta-container {
+	padding: 10px 15px 20px 15px;
+}
+
+.card-receta {
+	border: 1px solid #aaa;
+	padding: 16px;
+	border-radius: 12px;
+	height: 500px;
+	background: #fff;
+	transition: all 0.5s ease;
+}
+
+.card-receta:hover {
+	box-shadow: 0px 0px 12px 2px #aaa;
+}
+
+.card-receta img {
+	width: 100%;
+	min-height: 250px;
+	max-height: 250px;
+	object-fit: fill;
+}
+
+.card-bodys {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+/* 	border: 1px solid red; */
+	height: 200px;
+}
+
+
+
+.cabecera-de-receta {
+	background: #003e00;
+	text-align: center;
+	margin-bottom: 30px;
+	color: #fff;
+	border-radius: 15px;
+	height: 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.una-receta-container {
+/* 	border: 1px solid red; */
+	padding: 50px 0px 50px 0px;
+}
+
+.una-receta-container2 {
+/* 	border: 1px solid red; */
+	padding: 0px 0px 0px 0px;
+	margin-top: 50px !important;
+	display: flex;
+	justify-content: center;
+}
+
+.una-receta {
+	border: 2px solid #bcbcbc;
+	box-shadow: 0px 0px 12px 3px #cbcbcb;
+	width: 70%;
+	margin: auto;
+	padding: 35px;
+	background: #fff;
+	border-radius: 16px;
+	text-align: center;
+}
+
+.una-receta-imagen {
+	padding: 0 !important;
+}
+
+.una-receta-imagen img {
+	max-width: 100%;
+	min-height: 250px;
+	max-height: 450px;
+	object-fit: fill;
+	margin: auto;
+}
+
+.una-receta-ingredientes {
+	padding: 0 !important;
+}
+
+.una-receta-ingredientes h3 {
+	font-weight: bold;
+	text-align: left;
+}
+
+.una-receta-ingredientes p {
+	text-align: left;
+	font-size: 20px;
+}
+
+.una-receta-ingredientes ul {
+	padding: 0;
+}
+
+.una-receta-ingredientes ul li {
+	text-align: left;
+	list-style: none;
+}
+
+
+@media (max-width: 992px) {
+	* {
+		font-size: 14px;
+	}
+	.una-receta {
+		padding: 18px;
+		width: 100%;
+	}
+	.una-receta-ingredientes h3 {
+		font-weight: bold;
+		text-align: center;
+	}
+	.una-receta-ingredientes p {
+		text-align: center;
+		font-size: 20px;
+	}
+	.una-receta-ingredientes ul {
+		padding: 0;
+	}
+	.una-receta-ingredientes ul li {
+		text-align: center;
+		list-style: none;
+	}
+	.col-12 {
+		padding: 0 !important;
+	}
+}
+
+/* - - - - - - FIN RECETAS - - - - - - - -*/
+
+/* - - - - - - GESTION RECETAS - - - - - - - -*/
+
+.imagen-receta {
+	width: 100%;
+	max-height: 350px;
+	object-fit: fill;
+}
+
+
+
+
+
+
+/* - - - - - - FIN GESTION RECETAS - - - - - - - -*/
 

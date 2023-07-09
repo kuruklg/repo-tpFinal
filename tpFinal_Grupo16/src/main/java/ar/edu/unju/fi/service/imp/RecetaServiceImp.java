@@ -25,8 +25,37 @@ public class RecetaServiceImp implements IRecetaService {
 		return (List<Receta>) recetaRepository.findByEstado(true);
 	}
 
+
+	@Override
+	public String getCategoriaString(String categoria) {
+		String cate = "";
+		switch (categoria) {
+		case "carnes":
+			cate = "Carnes"; break;
+		case "bebidas":
+			cate = "Bebidas"; break;
+		case "dulces":
+			cate = "Dulces"; break;
+		case "ensaladas":
+			cate = "Ensaladas";	break;
+		case "legumbresycereales":
+			cate = "Legumbres y Cereales"; break;
+		case "pescados":
+			cate = "Pescados"; break;
+		case "pan":
+			cate = "Pan"; break;
+		case "sopasycremas":
+			cate = "Sopas y Cremas"; break;
+		default:
+			cate = "Carnes"; break;
+		}
+		return cate;
+	}
+	
+	
 	@Override
 	public void guardarReceta(Receta receta) {
+		receta.setEstado(true);
 		recetaRepository.save(receta);
 	}
 
@@ -51,5 +80,9 @@ public class RecetaServiceImp implements IRecetaService {
 	public Receta getReceta() {
 		return receta;
 	}
+
+
+
+
 
 }

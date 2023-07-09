@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,6 +30,10 @@ public class Receta {
 	@Column(name = "rec_categoria", nullable = false)
 	private String categoria;
 	
+//	@OneToMany(mappedBy = "receta", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	
+//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	
 	@OneToMany(mappedBy = "receta")
 	private List<Ingrediente> ingredientes;
 	
@@ -46,12 +52,14 @@ public class Receta {
 
 	
 	// contructor sobrecargado
-	public Receta(Long id, String nombre, String categoria, String preparacion) {
+	public Receta(Long id, String nombre, String categoria, String preparacion, String imagen, boolean estado) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.categoria = categoria;
 		this.preparacion = preparacion;
+		this.imagen = imagen;
+		this.estado = estado;
 	}
 	
 	
