@@ -91,7 +91,10 @@ footer {
 
 /* - - - - - FIN FOOTER - - - - - -*/
 
+.carousel-item img {
+  height: 500px;
 
+}
 
 /* - - - - - - RECETAS - - - - - - - -*/
 
