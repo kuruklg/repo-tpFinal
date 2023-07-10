@@ -91,9 +91,50 @@ footer {
 
 /* - - - - - FIN FOOTER - - - - - -*/
 
+/* - - -- - inicio - - - - -*/
+
 .carousel-item img {
   height: 500px;
+}
 
+.container-servicio {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.titulo {
+  color: #008000;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.servicios-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.servicio {
+  margin: 0 30px;
+  text-align: center;
+}
+
+.imagen-servicio {
+  width: 400px;
+  height: 400px;
+
+}
+
+.descripcion-servicio {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+  width: 400px;
+  text-align: justify;
+}
+
+.container-section{
+	margin: 30px auto;
 }
 
 /* - - - - - - RECETAS - - - - - - - -*/
