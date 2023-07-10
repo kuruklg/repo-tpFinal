@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+   <link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+   <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+   <link rel="icon" th:href="@{/index-images/icono2.png}">
+   <title>Gestion de Testimonios</title>
+</head>
+<body>
+	
+	<header th:replace="~{layouts/header :: header}"></header>
+	
+	<div class="container-fluid">
+		<div class="container m-auto">
+			<div class="formulario-receta">
+				<form th:action="@{/testimonios/guardar}" th:object="${testimonios}" method="POST">
+					<div class="col-sm-6">
+						
+						  <div class="mb-3">
+						    <label for="comentario">Comentario:</label>
+						    <input class="form-control" type="text" id="comentario" name="comentario" th:field="*{comentario}"/>
+						  </div>
+						  
+
+						  
+						<div class="mb-3">
+				  			<button class="btn btn-sm btn-dark" type="submit">Guardar testimonio</button>
+				  		</div>
+
+						  
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+		
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+	
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

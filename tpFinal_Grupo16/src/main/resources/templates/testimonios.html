@@ -11,15 +11,35 @@
 <body>
 	
 	<header th:replace="~{layouts/header :: header}"></header>
-		
-	<div class="testimonios-container container-fluid">
-		<div class="container m-auto row">
+	<div class="container m-auto">
+		<div class="row">
+			<div class="col-12 gestion-botones mb-3">
+				<a class="btn btn-sm btn-dark" th:href="@{/testimonios/nuevo}">Agregar un Testimonio</a>
+			</div>
 			<div class="cabecera col-12">
-				<h1>Bienvenidos a testimonios</h1>
+				<h1>Testimonios</h1>
+			</div>
+		</div>
+		<div class="row justify-content-start">
+			<div class="col-3 p-2" th:each="tes:${testimonios}">
+				<div class="card p-4" style="width: 18rem">
+					<div class="row">
+						<p th:text="${tes.comentario}"></p>
+					</div>
+					<div class="row">
+						<div class="col">
+							<img th:src="@{/index-images/icono2.png}" width="100" height="100" class="me-2">
+						</div>
+						<div class="col">
+							<p th:text="usuario"></p>
+							<p th:text="${tes.fecha}"></p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
 	
 	<script type="text/javascript" th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
