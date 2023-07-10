@@ -2,10 +2,13 @@ package ar.edu.unju.fi.entity;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 public class Usuario {
@@ -13,13 +16,36 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name = "nombre", nullable = false)
+	@NotEmpty(message = "Debe ingresar su nombre")
 	private String nombre;
+	
+	@Column(name = "apellido", nullable = false)
+	@NotEmpty(message = "Debe ingresar su apellido")
 	private String apellido;
+	
+	@Column(name = "email", nullable = false)
+	@NotEmpty(message = "Debe ingresar su email")
 	private String email;
+	
+	@Column(name = "fechaNacimiento", nullable = false)
+	@NotEmpty(message = "Debe seleccionar su fecha de nacimiento")
 	private LocalDate fechaNacimiento;
+	
+	@Column(name = "telefono", nullable = false)
+	@NotEmpty(message = "Debe ingresar su numero de telefono")
 	private String telefono;
+	
+	@Column(name = "sexo", nullable = false)
+	@NotEmpty(message = "Debe seleccionar su sexo")
 	private String sexo;
+	
+	@Column(name = "estatura", nullable = false)
+	@Min(value = 1, message = "Debe ingresar su estatura")
 	private int estatura;
+	
+	@Column(name = "rol_usuario")
 	private String rolUsuario;
 	
 	/** Crear una instancia de la clase usuario
