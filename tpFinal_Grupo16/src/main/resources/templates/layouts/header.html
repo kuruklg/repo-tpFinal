@@ -23,6 +23,9 @@
 		        <li class="nav-item">
 		          <a class="nav-link" th:href="@{/inicio}">Inicio</a>
 		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" th:href="@{/registro}">Registro</a>
+		        </li>
 		        <li class="nav-item dropdown">
 		          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 		            Servicios
@@ -47,6 +50,8 @@
 		            Gestion de Datos
 		          </a>
 		          <ul class="dropdown-menu">
+		          	<li><a class="dropdown-item" th:href="@{/gestion-usuarios}">Gestion de Registros</a></li>
+		            <li><hr class="dropdown-divider"></li>
 		            <li><a class="dropdown-item" th:href="@{/gestion-recetas}">Gestion de Recetas</a></li>
 		            <li><hr class="dropdown-divider"></li>
 		            <li><a class="dropdown-item" th:href="@{/gestion}">Gestion de Ingredientes</a></li>
