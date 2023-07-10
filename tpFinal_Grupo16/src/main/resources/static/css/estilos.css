@@ -264,6 +264,181 @@ footer {
 
 /* - - - - - - FIN RECETAS - - - - - - - -*/
 
+/* - - - - - - CONTACTO - - - - - - - - */
+
+.contacto-container {
+	text-align: center;
+	margin: 30px auto;
+	padding: 50px;
+	width: 100%;
+	border-radius: 8px;
+	background-color: #92e27a;
+}
+
+
+.contacto-container iframe{
+	flex-direction: column;
+}
+
+.contacto-header{
+	text-align: center;
+}
+
+.contacto-header p {
+	font-family: sans-serif;
+	font-weight: bolder;
+	font-size: 28px;
+	color: #fff;
+	letter-spacing: 1px;
+}
+
+.contacto-container a {
+	color: #fff;
+	font-size: 22px;
+	padding: 5px 10px;
+	margin: 10px;
+}
+
+.contacto-container ul li {
+	list-style: none;
+	display: inline-block;
+}
+
+.contacto-info {
+  display: flex;
+  align-items: center;
+}
+
+.contacto-item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+
+.contacto-item span {
+  font-size: 14px;
+}
+
+input {
+	background: #fff;
+	border-radius: 10px;
+	margin: 4px 6px;
+	font-family: 'Lobster', cursive;
+	text-align: center;
+	padding: 5px 10px; 
+}
+
+#email, #nombreContacto {
+	margin-bottom: 10px;
+	color: #343434;
+/* 	white-space: pre-line; */
+	width: 350px;
+}
+
+#mensajeAenviar {
+	width: 350px;
+	height: 75px;	
+}
+
+button{
+	background: blue;
+	color:#fff;
+    font-size: 25px;
+    font-family: 'Lobster', cursive;
+    border-radius: 10px;
+    margin:15px 13px;
+    padding: 5px 15px;
+}
+
+.enviar:hover {
+	background-color: darkblue;
+	cursor: pointer;
+}
+
+.contacto-container ul li a {
+	width: auto;
+}
+
+.contacto ul li {
+	background-color: blue;
+	display: inline-block;
+	list-style: none;
+	padding: 10px;
+	border-radius: 12px;
+	margin: 10px 3px;
+}
+
+.contacto ul li a {
+	color: #fff;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+.contacto ul li:hover {
+	background-color: darkblue;
+}
+
+.contacto-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.contacto-form label {
+	color: #fff;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.contacto-form input {
+	width: 200px;
+	margin: 10px 0px 5px 0px;
+}
+
+@media (max-width: 992px) {
+	.contacto-container {
+		padding: 15px
+	}
+	.contacto-header p {
+		font-size: 22px; 
+	}
+	.contacto-container a {
+		font-size: 20px
+	}
+	.contacto-form label {
+		font-size: 16px;
+	}
+	#mensajeAenviar {
+	width: 100%;
+	height: 75px;	
+	}
+}
+
+.mensajesEnviados-container {
+	background-color: #b4ff9a;
+	padding: 20px 30px !important;
+	border-radius: 8px;
+}
+
+.mensajesEnviados-container input,
+.mensajesEnviados-container textarea {
+	width: 100%;
+	text-align: left;
+	margin-top: 6px;
+	margin-bottom: 12px;
+}
+
+.no-resize {
+	resize: none;
+}
+
+.text-danger {
+	font-family: sans-serif;
+}
+
+/* ------------------------------- Fin contacto ------------------------- */
+
 /* - - - - - - GESTION RECETAS - - - - - - - -*/
 
 .imagen-receta {
@@ -271,11 +446,5 @@ footer {
 	max-height: 350px;
 	object-fit: fill;
 }
-
-
-
-
-
-
 /* - - - - - - FIN GESTION RECETAS - - - - - - - -*/
 
