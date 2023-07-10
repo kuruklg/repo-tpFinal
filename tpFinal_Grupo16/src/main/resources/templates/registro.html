@@ -13,12 +13,15 @@
 		
 		<div class="registro-container container-fluid">
 			<div class="container m-auto row">
-				<div class="cabecera col-12">
+				<div class="cabecera-formulario col-12">
 					<h1>Registrarse</h1>
-					<div>
-						<form action="#" th:action="@{/registro}" th:object="${usuario}" method="post">
+					<div class="container-formualrio">
+					<div class="formulario-registro">
+						<form th:action="@{/registro}" th:object="${usuario}" method="post">
 							<label for="nombre">Nombre:</label>
 							<input type="text" id="nombre" name="nombre" th:field="*{nombre}" required><br>
+							<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">
+							</div>
 							
 							<label for="apellido">Apellido:</label>
 							<input type="text" id="apellido" name="apellido" th:field="*{apellido}" required><br>
@@ -51,6 +54,7 @@
 	                        <p>Su identificador de usuario es: <span th:text="${idUsuario}"></span></p>
 	                    </div>
 						
+					</div>
 					</div>
 				</div>
 			</div>
