@@ -12,11 +12,49 @@
 	
 	<header th:replace="~{layouts/header :: header}"></header>
 		
+	<div id="slider" class="carousel slide" data-bs-ride="carousel">
+    <!-- Indicadores -->
+    <ol class="carousel-indicators">
+      <li data-bs-target="#slider" data-bs-slide-to="0" class="active"></li>
+      <li data-bs-target="#slider" data-bs-slide-to="1"></li>
+      <li data-bs-target="#slider" data-bs-slide-to="2"></li>
+    </ol>
+
+    <!-- Slides -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/index-images/banner-peso-ideal.jpeg" class="d-block w-100" alt="Slide 1">
+      </div>
+      <div class="carousel-item">
+        <img src="/index-images/banner-calculo-imc.jpeg" class="d-block w-100" alt="Slide 2">
+      </div>
+      <div class="carousel-item">
+        <img src="/index-images/banner-alimentacion.jpeg" class="d-block w-100" alt="Slide 3">
+      </div>
+    </div>
+
+    <!-- Controles -->
+    <a class="carousel-control-prev" href="#slider" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#slider" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </a>
+ 	 </div>
+
 	<div class="inicio-container container-fluid">
 		<div class="container m-auto row">
-			<div class="cabecera col-12">
-				<h1>Bienvenidos a la pagina de inicio</h1>
-			</div>
+			<h1>Salud y Bienestar</h1>
+		    <p>Somos un sitio con información de interés sobre temas de Salud y Bienestar. Encontrarás contenidos sobre Prevención, Enfermedades, Tratamientos, Cuidados, Medicinas y Entrevistas.</p>
+		
+		    <p>También ponemos a tu disposición algunos servicios. Entre ellos una práctica Calculadora de índice de Masa Corporal con la que podrás realizar el cálculo en segundos con sólo ingresar tu peso y altura, la calculadora te devuelve el resultado y lo podrás comparar contra una tabla en donde podrás visualizar los grados de obesidad (peso normal, exceso de peso, obesidad grados 1 y 2 u obesidad mórbida).</p>
+		
+		    <p>Otro servicio, que puede servir para contribuir a mejorar tu economía es un Multi Cotizador de Planes de Salud, Prepagas, Obras Sociales y Mutuales, para que puedas pedir en un mismo momento un presupuesto a tu medida en los principales servicios de salud de nuestro país. De esta forma podrás comparar costos, ahorrar en el valor de tu cuota mensual e incluso mejorar tu cobertura de salud.</p>
+		
+		    <p>Si buscas noticias e información sobre salud y bienestar, ¡estás en el sitio indicado!</p>
+	  	</div>
 		</div>
 	</div>
 	
