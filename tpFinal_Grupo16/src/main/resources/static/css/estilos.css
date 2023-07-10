@@ -19,6 +19,10 @@
 /* 	margin: 0; */
 }
 
+.testi-cont{
+	min-height: calc(100vh - 60px);
+}
+
 /* - - - - - HEADER - - - - - -*/
 
 nav .container a {
