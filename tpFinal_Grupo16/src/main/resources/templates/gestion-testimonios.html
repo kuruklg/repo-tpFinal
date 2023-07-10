@@ -6,61 +6,54 @@
    <link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
    <link rel="icon" th:href="@{/index-images/icono2.png}">
-   <title>Gestion de Recetas</title>
+   <title>Salud Vital</title>
 </head>
 <body>
 	
 	<header th:replace="~{layouts/header :: header}"></header>
-	
-	<div class="gestion-recetas-container container-fluid">
-		<div class="container m-auto row">
-			<div class="cabecera col-12">
-				<h1>Gestion de Testimonios</h1>
-			</div>
-			
-			<div class="col-12 recetas-container mb-3">
-				<div class="tabla-recetas">
-					<div class="table-responsive">
-	<th:block th:if="${not #strings.isEmpty(testimonios)}">
-  <!-- Código para mostrar la tabla de testimonios -->
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Fecha</th>
-        <th>Estado</th>
-        <th>Comentario</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr th:each="testimonio : ${testimonios}">
-        <td th:text="${testimonio.id}"></td>
-        <td th:text="${testimonio.fecha}"></td>
-        <td th:text="${testimonio.estado}"></td>
-        <td th:text="${testimonio.comentario}"></td>
-      </tr>
-    </tbody>
-  </table>
-</th:block>
-<th:block th:if="${#strings.isEmpty(testimonios)}">
-  <!-- Código para manejar la situación en la que no hay testimonios cargados -->
-  <p>No hay testimonios disponibles.</p>
-</th:block>
-
-					</div>
-				</div>		
-			</div>
-			
+	<div class="container m-auto">
+		<div class="row">
 			<div class="col-12 gestion-botones mb-3">
 				<a class="btn btn-sm btn-dark" th:href="@{/testimonios/nuevo}">Agregar un Testimonio</a>
 			</div>
-			
+			<div class="cabecera col-12">
+				<h1>Testimonios</h1>
+			</div>
 		</div>
-	</div>	
-	
+		<div class="row">
+			<table class="table">
+				<thead class="table-dark">
+					<tr>
+						<th>ID</th>
+						<th>Fecha</th>
+						<th>Comentario</th>
+						<th>Usuario</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody class="table-striped">
+					<tr th:each="tes:${testimonios}">
+						<td th:text="${tes.id}"></td>
+						<td th:text="${tes.fecha}"></td>
+						<td th:text="${tes.comentario}"></td>
+						<td th:text="${usuario}"></td>
+		                <td>
+		                  <a th:href="@{/gestion-testimonios/modificar/}+${tes.id}"
+		                     class="btn btn-sm btn-secondary">Modificar
+		                  </a>
+		                  <a th:href="@{/gestion-testimonios/eliminar/}+${tes.id}"
+		                     class="btn btn-sm btn-danger">Eliminar
+		                  </a>
+		               </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
 	
 	<script type="text/javascript" th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
-
+	
 </body>
 </html>
