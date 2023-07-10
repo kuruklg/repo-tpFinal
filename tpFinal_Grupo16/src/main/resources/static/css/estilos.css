@@ -137,6 +137,88 @@ footer {
 	margin: 30px auto;
 }
 
+/*- - - - - - - - Fin Inicio - - - -  - -*/
+
+/*- - - - - - - REGISTRO - - - - - - */
+
+.registro-container {
+    padding: 20px;
+}
+
+.formulario-registro {
+  width: 400px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cabecera.formulario {
+    background-color: #008000;
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.container-formualrio{
+	display: flex;
+  justify-content: center;
+}
+
+.cabecera h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="date"],
+form input[type="tel"],
+form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+form input[type="submit"] {
+    background-color: #008000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.text-danger {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.mensaje-identificador {
+    margin-top: 20px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.mensaje-identificador p {
+    margin: 0;
+    font-weight: bold;
+}
+
+/*- - - - -  - - Fin Registro - - - - - -*/
+
 /* - - - - - - RECETAS - - - - - - - -*/
 
 .categoria-container {

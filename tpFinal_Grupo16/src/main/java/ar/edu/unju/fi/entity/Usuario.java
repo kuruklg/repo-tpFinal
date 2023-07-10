@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Usuario {
@@ -30,7 +31,7 @@ public class Usuario {
 	private String email;
 	
 	@Column(name = "fechaNacimiento", nullable = false)
-	@NotEmpty(message = "Debe seleccionar su fecha de nacimiento")
+	@NotNull(message = "Debe seleccionar su fecha de nacimiento")
 	private LocalDate fechaNacimiento;
 	
 	@Column(name = "telefono", nullable = false)
