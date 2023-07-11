@@ -24,11 +24,13 @@
 					            <option value="">Seleccione su ID</option>
 					            <option th:each="usu: ${usuarios}" th:value="${usu.id}" th:text="${usu.id}"></option>
 					        </select>
+					        <div class="text-danger" th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}"></div>
 						 </div>
 						
 						 <div class="mb-3">
 						   <label for="comentario">Comentario:</label>
 						   <input class="form-control" type="text" id="comentario" name="comentario" th:field="*{comentario}"/>
+						   <div class="text-danger" th:if="${#fields.hasErrors('comentario')}" th:errors="*{comentario}"></div>
 						 </div>
 						  
 						<div class="mb-3">
@@ -47,4 +49,4 @@
 	
 	<script type="text/javascript" th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
 </body>
-</html>
+</html> 
