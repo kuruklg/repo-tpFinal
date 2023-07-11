@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Component
@@ -29,11 +30,12 @@ public class Testimonio {
 	private LocalDate fecha;
 	
 	@Column(name = "tes_comentario")
-	@Size(min=5, max=100, message="el comentario debe contener al menos 5 caracteres.")
+	@Size(min=5, message="el comentario debe contener al menos 5 caracteres.")
 	private String comentario;
 	
 	@ManyToOne()
 	@JoinColumn(name="usu_id")
+	@NotNull(message = "Debe seleccionar un ID")
 	private Usuario usuario;
 	
 	@Column(name = "tes_estado")

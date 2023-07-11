@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ar.edu.unju.fi.service.ITestimonioService;
-import ar.edu.unju.fi.service.IUsuarioService;
 
 @Controller
 @RequestMapping("/gestion-testimonios")
