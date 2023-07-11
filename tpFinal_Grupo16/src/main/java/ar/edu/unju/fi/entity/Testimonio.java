@@ -10,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
 
@@ -30,6 +32,10 @@ public class Testimonio {
 	@Size(min=5, max=100, message="el comentario debe contener al menos 5 caracteres.")
 	private String comentario;
 	
+	@ManyToOne()
+	@JoinColumn(name="usu_id")
+	private Usuario usuario;
+	
 	@Column(name = "tes_estado")
 	private boolean estado;
 	
@@ -37,10 +43,11 @@ public class Testimonio {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Testimonio(LocalDate fecha, String comentario) {
+	public Testimonio(LocalDate fecha, String comentario, Usuario usuario) {
 		super();
 		this.fecha = fecha;
 		this.comentario = comentario;
+		this.usuario = usuario;
 	}
 
 	public Long getId() {
@@ -71,5 +78,13 @@ public class Testimonio {
 	}
 	public void setEstado(boolean estado) {
 		this.estado = estado;
+	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 }

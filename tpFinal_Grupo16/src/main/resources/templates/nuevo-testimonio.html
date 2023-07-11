@@ -18,12 +18,18 @@
 				<form th:action="@{/testimonios/guardar}" th:object="${testimonios}" method="POST">
 					<div class="col-sm-6">
 						
-						  <div class="mb-3">
-						    <label for="comentario">Comentario:</label>
-						    <input class="form-control" type="text" id="comentario" name="comentario" th:field="*{comentario}"/>
-						  </div>
-						  
-
+						<div class="mb-3">
+						    <label for="comentario">ID:</label>
+					        <select class="form-select" id="usuario" name="usuario" th:field="*{usuario}">
+					            <option value="">Seleccione su ID</option>
+					            <option th:each="usu: ${usuarios}" th:value="${usu.id}" th:text="${usu.id}"></option>
+					        </select>
+						 </div>
+						
+						 <div class="mb-3">
+						   <label for="comentario">Comentario:</label>
+						   <input class="form-control" type="text" id="comentario" name="comentario" th:field="*{comentario}"/>
+						 </div>
 						  
 						<div class="mb-3">
 				  			<button class="btn btn-sm btn-dark" type="submit">Guardar testimonio</button>

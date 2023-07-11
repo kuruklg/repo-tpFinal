@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import ar.edu.unju.fi.entity.Testimonio;
 import ar.edu.unju.fi.service.ITestimonioService;
+import ar.edu.unju.fi.service.IUsuarioService;
 import jakarta.validation.Valid;
 
 @Controller
@@ -20,6 +21,9 @@ public class TestimonioController {
 	
 	@Autowired
 	private ITestimonioService testimonioService;
+	
+	@Autowired
+	private IUsuarioService usuarioService;
 	
 	/** Ir a la pagina de testimonios
 	 * 
@@ -43,6 +47,7 @@ public class TestimonioController {
 	@GetMapping("/nuevo")
 	public String getNuevoTestimonioPage(Model model) {
 		model.addAttribute("testimonios", testimonioService.getTestimonio());
+		model.addAttribute("usuarios", usuarioService.listarUsuarios());
 		return "nuevo-testimonio";
 	}
 	
@@ -61,6 +66,7 @@ public class TestimonioController {
 			return "nuevo-testimonio";
 		} else {
 			testimonioService.guardarTestimonio(testimonio);
+			model.addAttribute("usuarios", usuarioService.listarUsuarios());
 			return "redirect:/testimonios";
 		}
 	}
