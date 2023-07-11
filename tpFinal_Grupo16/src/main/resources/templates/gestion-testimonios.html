@@ -6,21 +6,22 @@
    <link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
    <link rel="icon" th:href="@{/index-images/icono2.png}">
-   <title>Salud Vital</title>
+   <title>Gestion de Testimonios</title>
 </head>
 <body>
 	
 	<header th:replace="~{layouts/header :: header}"></header>
-	<div class="container testi-cont m-auto">
+	
+	<div class="container testi-cont m-auto tabla-recetas" >
 		<div class="row">
-			<div class="col-12 gestion-botones mb-3">
-				<a class="btn btn-sm btn-dark" th:href="@{/testimonios/nuevo}">Agregar un Testimonio</a>
-			</div>
-			<div class="cabecera col-12">
-				<h1>Testimonios</h1>
+			<div class="cabecera col-12 pt-3" >
+				<h1>Gestion de Testimonios</h1>
 			</div>
 		</div>
-		<div class="row">
+		<div class="col-12 gestion-botones mb-3">
+			<a class="btn btn-sm btn-dark" th:href="@{/testimonios/nuevo}">Agregar un Testimonio</a>
+		</div>
+		<div class="row" >
 			<table class="table">
 				<thead class="table-dark">
 					<tr>
@@ -36,11 +37,11 @@
 						<td th:text="${tes.id}"></td>
 						<td th:text="${tes.fecha}"></td>
 						<td th:text="${tes.comentario}"></td>
-						<td th:text="${usuario}"></td>
+						<td th:text="${tes.usuario.nombre} + ' ' + ${tes.usuario.apellido}"></td>
 		                <td>
-		                  <a th:href="@{/gestion-testimonios/modificar/}+${tes.id}"
+<!--		                  <a th:href="@{/gestion-testimonios/modificar/}+${tes.id}"
 		                     class="btn btn-sm btn-secondary">Modificar
-		                  </a>
+		                  </a>-->
 		                  <a th:href="@{/gestion-testimonios/eliminar/}+${tes.id}"
 		                     class="btn btn-sm btn-danger">Eliminar
 		                  </a>
@@ -49,6 +50,7 @@
 				</tbody>
 			</table>
 		</div>
+
 	</div>
 
 	<footer th:replace="~{layouts/footer :: footer}"></footer>

@@ -6,18 +6,15 @@
    <link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
    <link rel="icon" th:href="@{/index-images/icono2.png}">
-   <title>Salud Vital</title>
+   <title>Testimonios</title>
 </head>
 <body>
 	
 	<header th:replace="~{layouts/header :: header}"></header>
 	<div class="container testi-cont m-auto">
 		<div class="row">
-			<div class="col-12 gestion-botones mb-3">
-				<a class="btn btn-sm btn-dark" th:href="@{/testimonios/nuevo}">Agregar un Testimonio</a>
-			</div>
 			<div class="cabecera col-12">
-				<h1>Testimonios</h1>
+				<h1>Lea lo que dicen nuestro clientes</h1>
 			</div>
 		</div>
 		<div class="row justify-content-start">
@@ -28,16 +25,19 @@
 					</div>
 					<div class="row">
 						<div class="col">
-							<img th:src="@{/index-images/icono2.png}" width="100" height="100" class="me-2">
+							<img th:src="@{/testimonios-images/usuario.png}" width="100" height="100" class="me-2">
 						</div>
 						<div class="col">
-							<p th:text="usuario"></p>
+							<p th:text="${tes.usuario.nombre} + ' ' + ${tes.usuario.apellido}"></p>
 							<p th:text="${tes.fecha}"></p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+					<div class="col-12 gestion-botones mb-3">
+				<a class="btn btn-sm btn-dark" th:href="@{/testimonios/nuevo}">Agregar un Testimonio</a>
+			</div>
 	</div>
 
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
