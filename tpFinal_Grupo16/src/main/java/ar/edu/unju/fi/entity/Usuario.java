@@ -184,7 +184,6 @@ public class Usuario {
 	public void setTestimonios(List<Testimonio> testimonios) {
 		this.testimonios = testimonios;
 	}
-<<<<<<< HEAD
 	
 	public int calcularEdad() {
 		LocalDate fechaHoy = LocalDate.now();
@@ -194,7 +193,6 @@ public class Usuario {
 	    
 		return edad;
 	}
-=======
 
 	public List<IndiceMasaCorporal> getImc() {
 		return imc;
@@ -203,7 +201,4 @@ public class Usuario {
 	public void setImc(List<IndiceMasaCorporal> imc) {
 		this.imc = imc;
 	}
-	
-	
->>>>>>> refs/heads/servicioIMC2
 }
