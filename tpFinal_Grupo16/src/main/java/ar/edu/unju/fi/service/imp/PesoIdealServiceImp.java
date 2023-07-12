@@ -15,11 +15,16 @@ public class PesoIdealServiceImp implements IPesoIdealService {
 	
 	@Override
 	public void calcularPesoIdeal(PesoIdeal pesoIdeal) {
+		
 		Usuario usuario = pesoIdeal.getUsuario();
-		int edad = usuario.calcularEdad();
-		int altura = usuario.getEstatura();
-		double calculo = altura - 100 + ((edad/10) * 0.9); 
-		pesoIdeal.setPesoCalculado(calculo);
+		if (usuario != null) {
+			int edad = usuario.calcularEdad();
+			int altura = usuario.getEstatura();
+			double calculo = altura - 100 + ((edad/10) * 0.9); 
+			pesoIdeal.setPesoCalculado(calculo);
+		}
+		else
+			pesoIdeal.setPesoCalculado(0);
 	}
 	
 	@Override

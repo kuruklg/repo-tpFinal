@@ -27,6 +27,7 @@
 					            <option value="">Seleccione su ID</option>
 					            <option th:each="usu: ${usuarios}" th:value="${usu.id}" th:text="${usu.id}"></option>
 					        </select>
+<!-- 							<input type="number" min="2" class="form-control" id="usuario" name="usuario" th:field="*{usuario}"> -->
 					        <div class="text-danger" th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}"></div>
 						 </div>
 						  

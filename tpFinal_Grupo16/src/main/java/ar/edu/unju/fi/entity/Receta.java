@@ -13,9 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 
 @Component
 @Entity
@@ -40,7 +38,6 @@ public class Receta {
 //	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	
 	@OneToMany(mappedBy = "receta")
-//	@NotEmpty(message = "Debe ingresar un ingrediente")
 	private List<Ingrediente> ingredientes;
 	
 	@Column(name = "rec_preparacion", nullable = false)
