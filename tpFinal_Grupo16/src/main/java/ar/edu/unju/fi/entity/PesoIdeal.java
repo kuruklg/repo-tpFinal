@@ -16,6 +16,7 @@ import jakarta.validation.constraints.NotNull;
 @Component
 public class PesoIdeal {	
 	
+	@NotNull(message = "Debe seleccionar un ID")
 	private Usuario usuario;
 	
 	private double pesoCalculado;
@@ -24,7 +25,7 @@ public class PesoIdeal {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PesoIdeal(@NotNull(message = "Debe seleccionar un ID") Usuario usuario) {
+	public PesoIdeal(Usuario usuario) {
 		this.usuario = usuario;
 	}
 
