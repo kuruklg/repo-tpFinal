@@ -10,6 +10,9 @@ public interface IIndiceIMCService {
 	List<IndiceMasaCorporal> listarImc();
 	
 	
+	List<IndiceMasaCorporal> listarPorFechaImcById(Long id);
+	
+	
 	void guardarImc(IndiceMasaCorporal imc);
 	
 	
@@ -25,5 +28,8 @@ public interface IIndiceIMCService {
 	IndiceMasaCorporal getIMC();
 	
 	
-	String calcularImc(int estatura, float peso);
+	float calcularImc(int estatura, float peso);
+	
+	
+	String calcularImcMsg(int estatura, float peso);
 }

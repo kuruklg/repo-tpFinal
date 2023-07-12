@@ -578,3 +578,22 @@ button{
 }
 /* - - - - - - FIN GESTION RECETAS - - - - - - - -*/
 
+
+/* ------------------ SERVICIO IMC ------------------------------*/
+
+.info-userimc {
+	background: #1b8301;
+	padding: 20px;
+	border-radius: 12px;
+}
+
+.info-userimc p {
+	color: #fff;
+	font-weight: bold;
+}
+
+.registros {
+	
+}
+
+/* ------------------ FIN SERVICIO IMC ------------------------------*/

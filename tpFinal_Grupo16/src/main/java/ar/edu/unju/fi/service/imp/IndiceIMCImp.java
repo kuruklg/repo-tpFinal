@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.service.imp;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,9 @@ public class IndiceIMCImp implements IIndiceIMCService {
 
 	@Override
 	public void guardarImc(IndiceMasaCorporal imc) {
+		imc.setFechaimc(LocalDate.now());
 		imc.setEstado(true);
+		this.calcularImc(0, 0);
 		imcRepository.save(imc);
 	}
 
@@ -53,17 +56,41 @@ public class IndiceIMCImp implements IIndiceIMCService {
 	}
 
 	@Override
-	public String calcularImc(int estatura, float peso) {
+	public float calcularImc(int estatura, float peso) {
+		estatura = estatura/100;
+		float imc = (float) peso / (estatura^2);
+		return imc;
+	}
+	
+	@Override
+	public String calcularImcMsg(int estatura, float peso) {
 		String resp = "";
-		float imc = peso / (estatura*2);
-		if(imc>=18.5 && imc<=25) {
+		estatura = estatura/100;
+		float imc = (float) peso / (estatura^2);
+		System.out.println(imc);
+		if(imc>=18.5 && imc<=25.0) {
 			resp = "Está en su peso ideal";
 		} else if(imc<18.5) {
 			resp = "Está por debajo de su peso ideal";
 		} else {
 			resp = "Tiene sobrepeso";
 		}
+		
 		return resp;
 	}
+
+	@Override
+	public List<IndiceMasaCorporal> listarPorFechaImcById(Long id) {
+		List<IndiceMasaCorporal> lista = null;
+		List<IndiceMasaCorporal> imcs = imcRepository.findByEstado(true);
+		for(IndiceMasaCorporal imc: imcs) {
+			if(imc.getUsuario().getId().equals(id)) {
+				lista.add(imc);
+			}
+		}
+		return lista;
+	}
+
+	
 
 }
