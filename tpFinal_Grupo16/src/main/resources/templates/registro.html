@@ -17,7 +17,7 @@
 					<h1>Registrarse</h1>
 					<div class="container-formualrio">
 					<div class="formulario-registro">
-						<form th:action="@{/registro/nuevo}" th:object="${usuario}" method="post">
+						<form th:action="@{/registro}" th:object="${usuario}" method="post">
 							<label for="nombre">Nombre:</label>
 							<input type="text" id="nombre" name="nombre" th:field="*{nombre}"><br>
 							<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>

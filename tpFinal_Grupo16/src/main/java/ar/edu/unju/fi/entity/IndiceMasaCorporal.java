@@ -21,7 +21,7 @@ public class IndiceMasaCorporal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ind_id")
-	private Long id;
+	private Long id;	
 	
 	@Column(name = "ind_fechaimc", nullable = false)
 	private LocalDate fechaimc;
@@ -30,14 +30,18 @@ public class IndiceMasaCorporal {
 	@JoinColumn(name = "usu_id")
 	private Usuario usuario;
 	
-	private Long idUsuario;
 	
 	@Column(name = "ind_estado", nullable = false)
 	private boolean estado;
 	
+	@Column(name = "ind_peso")
 	private int peso;
 	
+	@Column(name = "ind-imc")
+	private float imc;
 	
+
+
 	public IndiceMasaCorporal() {}
 
 
@@ -91,16 +95,14 @@ public class IndiceMasaCorporal {
 	}
 
 
-	public Long getIdUsuario() {
-		return idUsuario;
+	public float getImc() {
+		return imc;
 	}
 
 
-	public void setIdUsuario(Long idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setImc(float imc) {
+		this.imc = imc;
 	}
-	
-	
 	
 	
 }
