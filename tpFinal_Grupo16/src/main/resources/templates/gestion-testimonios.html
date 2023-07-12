@@ -22,26 +22,23 @@
 			<a class="btn btn-sm btn-dark" th:href="@{/testimonios/nuevo}">Agregar un Testimonio</a>
 		</div>
 		<div class="row" >
-			<table class="table">
+			<table class="table align-middle table-bordered">
 				<thead class="table-dark">
 					<tr>
 						<th>ID</th>
 						<th>Fecha</th>
-						<th>Comentario</th>
+						<th scope="col" class="align-middle" >Comentario</th>
 						<th>Usuario</th>
 						<th>Acciones</th>
 					</tr>
 				</thead>
 				<tbody class="table-striped">
 					<tr th:each="tes:${testimonios}">
-						<td th:text="${tes.id}"></td>
-						<td th:text="${tes.fecha}"></td>
+						<td th:text="${tes.id}" class="text-truncate"></td>
+						<td th:text="${tes.fecha}" class="text-truncate"></td>
 						<td th:text="${tes.comentario}"></td>
-						<td th:text="${tes.usuario.nombre} + ' ' + ${tes.usuario.apellido}"></td>
+						<td th:text="${tes.usuario.nombre} + ' ' + ${tes.usuario.apellido}" class="text-truncate"></td>
 		                <td>
-<!--		                  <a th:href="@{/gestion-testimonios/modificar/}+${tes.id}"
-		                     class="btn btn-sm btn-secondary">Modificar
-		                  </a>-->
 		                  <a th:href="@{/gestion-testimonios/eliminar/}+${tes.id}"
 		                     class="btn btn-sm btn-danger">Eliminar
 		                  </a>
