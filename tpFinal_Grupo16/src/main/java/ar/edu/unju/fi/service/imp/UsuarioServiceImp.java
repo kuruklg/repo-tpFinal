@@ -51,5 +51,11 @@ public class UsuarioServiceImp implements IUsuarioService {
 	public Usuario getById(Long id) {
 		return usuarioRepository.findById(id).get();
 	}
-	
+
+	@Override
+	public void eliminarUsuario(Long idUsuario) {
+		usuario = usuarioRepository.findById(idUsuario).get();
+		usuario.setEstado(false);
+		usuarioRepository.save(usuario);
+	}
 }

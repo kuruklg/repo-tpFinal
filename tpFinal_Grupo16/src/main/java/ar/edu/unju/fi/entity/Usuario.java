@@ -58,6 +58,9 @@ public class Usuario {
 	@Column(name = "rol_usuario")
 	private String rolUsuario;
 	
+	@Column(name= "usu_estado", nullable = false)
+	private boolean estado;
+	
 	@OneToMany(mappedBy = "usuario")
 	List<Testimonio> testimonios;
 	
@@ -76,7 +79,7 @@ public class Usuario {
 	 * @param estatura corresponde a la estatura del usuario
 	 */
 	public Usuario(Long id, String nombre, String apellido, String email, LocalDate fechaNacimiento, String telefono,
-			String sexo, int estatura, String rolUsuario) {
+			String sexo, int estatura, String rolUsuario, boolean estado) {
 		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -86,6 +89,7 @@ public class Usuario {
 		this.sexo = sexo;
 		this.estatura = estatura;
 		this.rolUsuario = rolUsuario;
+		this.estado = estado;
 	}
 
 	/**
@@ -160,6 +164,14 @@ public class Usuario {
 		this.estatura = estatura;
 	}
 	
+	public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
+
 	// Métodos adicionales para usuarios creados manualmente
     public void setIdManual(Long id) {
         this.id = id;
