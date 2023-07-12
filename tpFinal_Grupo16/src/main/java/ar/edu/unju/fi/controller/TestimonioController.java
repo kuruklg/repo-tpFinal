@@ -46,7 +46,7 @@ public class TestimonioController {
     
 	@GetMapping("/nuevo")
 	public String getNuevoTestimonioPage(Model model) {
-		model.addAttribute("testimonios", testimonioService.getTestimonio());
+		model.addAttribute("testimonio", testimonioService.getTestimonio());
 		model.addAttribute("usuarios", usuarioService.listarUsuarios());
 		return "nuevo-testimonio";
 	}
@@ -60,9 +60,10 @@ public class TestimonioController {
 	 * @return renderiza la pagina testimonios y carga su lista en caso de que se haya agregado datos validos
 	 */
 	@PostMapping("/guardar")
-	public String guardarTestimonio(@Valid @ModelAttribute("testimonios")Testimonio testimonio, BindingResult result, Model model) {
+	public String guardarTestimonio(@Valid @ModelAttribute("testimonio")Testimonio testimonio, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			model.addAttribute("testimonios", testimonio);
+			model.addAttribute("usuarios", usuarioService.listarUsuarios());
 			return "nuevo-testimonio";
 		} else {
 			testimonioService.guardarTestimonio(testimonio);

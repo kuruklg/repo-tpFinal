@@ -13,6 +13,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Component
 @Entity
@@ -25,9 +28,11 @@ public class Receta {
 	private Long id;
 	
 	@Column(name = "rec_nombre", nullable = false)
+	@NotEmpty(message = "Debe ingresar un nombre para la receta")
 	private String nombre;
 	
 	@Column(name = "rec_categoria", nullable = false)
+	@NotEmpty(message = "Debe ingresar una categoria")
 	private String categoria;
 	
 //	@OneToMany(mappedBy = "receta", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -35,12 +40,15 @@ public class Receta {
 //	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	
 	@OneToMany(mappedBy = "receta")
+//	@NotEmpty(message = "Debe ingresar un ingrediente")
 	private List<Ingrediente> ingredientes;
 	
 	@Column(name = "rec_preparacion", nullable = false)
+	@NotEmpty(message = "Debe ingresar la preparacion")
 	private String preparacion;
 	
 	@Column(name = "rec_imagen", nullable = false)
+	@NotEmpty(message = "Debe ingresar el url de una imagen")
 	private String imagen;
 	
 	@Column(name = "rec_estado", nullable = false)
