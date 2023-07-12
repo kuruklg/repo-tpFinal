@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.entity;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -175,5 +176,14 @@ public class Usuario {
 	
 	public void setTestimonios(List<Testimonio> testimonios) {
 		this.testimonios = testimonios;
+	}
+	
+	public int calcularEdad() {
+		LocalDate fechaHoy = LocalDate.now();
+		
+		Period periodo = Period.between(fechaHoy, fechaNacimiento);
+	    int edad = Math.abs(periodo.getDays());
+	    
+		return edad;
 	}
 }

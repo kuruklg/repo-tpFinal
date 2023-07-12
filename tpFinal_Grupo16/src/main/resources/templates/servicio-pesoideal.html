@@ -17,6 +17,29 @@
 			<div class="cabecera col-12">
 				<h1>Servicio Peso Ideal</h1>
 			</div>
+			<div>
+				<form th:action="@{/servicio/calcular-peso-ideal/guardar}" th:object="${pesoIdeal}" method="POST">
+					<div class="col-sm-6">
+						
+						<div class="mb-3">
+						    <label for="id">ID:</label>
+					        <select class="form-select" id="usuario" name="usuario" th:field="*{usuario}">
+					            <option value="">Seleccione su ID</option>
+					            <option th:each="usu: ${usuarios}" th:value="${usu.id}" th:text="${usu.id}"></option>
+					        </select>
+					        <div class="text-danger" th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}"></div>
+						 </div>
+						  
+						<div class="mb-3">
+				  			<button class="btn btn-sm btn-dark" type="submit">Calcular peso</button>
+				  		</div>
+				  		<div th:if="*{pesoCalculado}" class="mensaje-identificador">
+	            			<p>Su peso ideal es: <span th:text="*{pesoCalculado}"></span></p>
+	            		</div>
+					</div>
+				</form>
+
+			</div>
 		</div>
 	</div>
 	
