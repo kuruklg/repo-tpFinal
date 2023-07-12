@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,6 +17,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
+@Component
 @Entity
 @Table(name="usuarios")
 public class Usuario {
@@ -55,8 +58,12 @@ public class Usuario {
 	@Column(name = "rol_usuario")
 	private String rolUsuario;
 	
-	@OneToMany(mappedBy="usuario")
+	@OneToMany(mappedBy = "usuario")
 	List<Testimonio> testimonios;
+	
+	@OneToMany(mappedBy = "usuario")
+	List<IndiceMasaCorporal> imc;
+	
 	
 	/** Crear una instancia de la clase usuario
 	 * @param id un código que se genera automaticamente
@@ -177,6 +184,7 @@ public class Usuario {
 	public void setTestimonios(List<Testimonio> testimonios) {
 		this.testimonios = testimonios;
 	}
+<<<<<<< HEAD
 	
 	public int calcularEdad() {
 		LocalDate fechaHoy = LocalDate.now();
@@ -186,4 +194,16 @@ public class Usuario {
 	    
 		return edad;
 	}
+=======
+
+	public List<IndiceMasaCorporal> getImc() {
+		return imc;
+	}
+
+	public void setImc(List<IndiceMasaCorporal> imc) {
+		this.imc = imc;
+	}
+	
+	
+>>>>>>> refs/heads/servicioIMC2
 }
