@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,7 +26,8 @@ public class UsuarioController {
 	private IUsuarioService usuarioService;
 	
 	
-	@GetMapping("/registro")
+	//@GetMapping("/registro")
+	@GetMapping("")
 	public String mostrarFormularioRegistro (Model model) {
 		model.addAttribute("usuario", new Usuario());
 		return "registro";
@@ -61,6 +63,9 @@ public class UsuarioController {
 		model.addAttribute("usuarios", usuarioService.listarUsuarios());
 		return "gestion-usuarios";
 	}
+	
+
+	
 	
 	@PostConstruct
 	public void cargarUsuariosManualmente() {

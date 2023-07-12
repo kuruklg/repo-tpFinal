@@ -14,10 +14,59 @@
 		
 	<div class="servicio-calcularimc-container container-fluid">
 		<div class="container m-auto row">
-			<div class="cabecera col-12">
+		
+			<div class="cabecera col-3 m-auto">
 				<h1>Servicio Calcular IMC</h1>
+				<div class="imc-login">
+					<form th:action="@{/servicio/calcular-IMC/login}" th:object="${usuario}" method="post">
+						<div class="mb-3">
+							<label for="idUsuario" class="form-label">Ingrese ID de Usuario: </label>
+							<input type="number" min="1" class="form-control" id="idUsuario" name="idUsuario" th:field="*{id}">
+						</div>
+						<div>
+							<input type="submit" class="btn btn-success" value="Ingresar">
+						</div>
+					</form>
+					<div th:if="${variable} == true">
+						<p>usuario encontrado</p>
+					</div>
+					<div th:if="${variable} == false">
+						<p>usuario no encontrado</p>
+					</div>
+				</div>
 			</div>
 		</div>
+		<div class="row m-auto">			
+			<div class="registros col-8">
+				
+			</div>
+		</div>
+		
+		<div class="info-user" th:if="${variable} == true">
+			<p th:text="'Hola, ' + ${nameUsuario} + '!'"></p>
+			<p th:text="'Estatura: ' + ${estaturaUsuario} + 'cm'"></p>
+			<div th:if="${mostrarRes} == true">
+			</div>
+		</div>
+		
+		<div class="row m-auto">			
+			<div class="registros col-8">
+				<form th:action="@{/servicio/calcular-IMC/calculo}" th:object="${imc}" method="post">
+					<div class="mb-3">
+						<label for="peso" class="form-label">Ingrese su peso actual: </label>
+						<input type="number" min=1 class="form-control" id="peso" name="peso" th:field="*{peso}">
+					</div>
+					<div class="mb-3" th:if="${mostrarRes}">
+						<p th:text="${resultado}"></p>
+					</div>
+					<div class="mb-3">
+						<button class="btn btn-sm btn-dark" type="submit">Agregar Ingrediente</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		
 	</div>
 	
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
