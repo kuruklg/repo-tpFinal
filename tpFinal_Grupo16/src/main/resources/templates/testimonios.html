@@ -11,12 +11,25 @@
 <body>
 	
 	<header th:replace="~{layouts/header :: header}"></header>
-	<div class="container testi-cont m-auto">
-		<div class="row">
+	
+	<div>
+		<img alt="banner-vital-imc"
+			src="/recetas-images/banner-testimonio.jpg">
+	</div>
+	
+	<div class="recetas-container container-fluid">
+		
+		<div class="container m-auto row">
+			
+			<div class="descripcion-imc">
+				<h2>¡Descubre las experiencias de otras personas y comparte la tuya!</h2>
+				<p>¿Te faltan ideas para cocinar platos sanos y equilibrados? En esta lista encontrarás desde recetas muy sencillas hasta platos más elaborados para días especiales. Todas son propuestas sanas basadas en verduras y frutas.</p>
+			</div>
+			
 			<div class="cabecera col-12 pt-3">
 				<h1>Lea lo que dicen nuestro clientes</h1>
 			</div>
-		</div>
+
 		<div class="row justify-content-start">
 			<div class="col-3 p-2" th:each="tes:${testimonios}">
 				<div class="card p-4" style="width: 18rem">
@@ -34,10 +47,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
+			</div>
 					<div class="col-12 gestion-botones mb-3">
 				<a class="btn btn-sm btn-dark" th:href="@{/testimonios/nuevo}">Agregar un Testimonio</a>
 			</div>
+		</div>
 	</div>
 
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
