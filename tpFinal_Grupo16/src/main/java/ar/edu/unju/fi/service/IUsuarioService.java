@@ -21,5 +21,5 @@ public interface IUsuarioService {
 	
 	Usuario getUsuario();
 	
-	
+	void eliminarUsuario(Long idUsuario);
 }

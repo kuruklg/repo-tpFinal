@@ -51,6 +51,7 @@ public class UsuarioController {
 
 		/* Asignar el rol "usuario normal" al usuario registrado */
 	    usuario.setRolUsuario("normal");
+	    usuario.setEstado(true);
 	    usuarioService.guardarUsuario(usuario);
 	    
 		/* Agregar el identificador al modelo para mostrarlo en la vista */
@@ -65,13 +66,18 @@ public class UsuarioController {
 	}
 	
 
+	@GetMapping("/eliminar/{idUsuario}")
+	public String eliminarUsuarioPage(@PathVariable("idUsuario")Long idUsuario) {
+		usuarioService.eliminarUsuario(idUsuario);
+		return "redirect:/gestion-usuarios";
+	}
 	
 	
 	@PostConstruct
 	public void cargarUsuariosManualmente() {
 	    /* Cargar usuario administrador manualmente */
 	    LocalDate fechaActual = LocalDate.now();
-	    Usuario administrador = new Usuario(1L, "admin", "admin", "admin@admin.com", fechaActual, "1234567890", "M", 180, "administrador");
+	    Usuario administrador = new Usuario(1L, "admin", "admin", "admin@admin.com", fechaActual, "1234567890", "M", 180, "administrador",true);
 
 	    /* Guardar los usuarios en la base de datos */
 	    usuarioService.guardarUsuario(administrador);
