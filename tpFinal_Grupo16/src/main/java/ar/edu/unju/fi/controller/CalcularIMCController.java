@@ -91,7 +91,7 @@ public class CalcularIMCController {
     	model.addAttribute("mostrarRes", true);
 		model.addAttribute("variable", true);
     	model.addAttribute("imc", imcService.getIMC());
-    	return "servicio-calcularimc";
+    	return "servicio-calcularimc"; 
     }
     
     
