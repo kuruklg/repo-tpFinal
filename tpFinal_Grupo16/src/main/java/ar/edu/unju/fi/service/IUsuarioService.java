@@ -9,5 +9,17 @@ public interface IUsuarioService {
 	
 	List<Usuario> listarUsuarios();
 	
+	
 	void guardarUsuario(@Valid Usuario usuario);
+	
+	
+	boolean login(Long id);
+	
+	
+	Usuario getById(Long id);
+	
+	
+	Usuario getUsuario();
+	
+	
 }
