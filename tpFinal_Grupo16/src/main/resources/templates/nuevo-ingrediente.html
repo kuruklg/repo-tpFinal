@@ -27,11 +27,13 @@
 				            <option value="">Seleccione una Receta</option>
 				            <option th:each="rec: ${recetas}" th:value="${rec.id}" th:text="${rec.nombre}"></option>
 				        </select>
+				        <div class="text-danger" th:if="${#fields.hasErrors('receta')}" th:errors="*{receta}"></div>
 				    </div>
 					
 					<div class="mb-3">
 						<label for="nombre">Ingrediente:</label>
 				    	<input class="form-control" type="text" id="nombre" name="nombre" th:field="*{nombre}">
+<!-- 				    	<div class="text-danger" th:if="${#fields.hasErrors('ingredientes')}" th:errors="*{ingredientes}"></div> -->
 					</div>
 					
 					<div class="mb-3">

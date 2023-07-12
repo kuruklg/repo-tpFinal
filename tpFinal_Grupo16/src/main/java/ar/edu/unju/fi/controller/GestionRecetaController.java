@@ -3,6 +3,7 @@ package ar.edu.unju.fi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import ar.edu.unju.fi.entity.Ingrediente;
 import ar.edu.unju.fi.entity.Receta;
 import ar.edu.unju.fi.service.IIngredienteService;
 import ar.edu.unju.fi.service.IRecetaService;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/gestion-recetas")
@@ -45,11 +47,16 @@ public class GestionRecetaController {
     
     
     @PostMapping("/guardar")
-    public String guardarReceta(@ModelAttribute("receta")Receta receta, Model model) {
-    	
-    	recetaService.guardarReceta(receta);
-    	model.addAttribute("recetas", recetaService.listarRecetas());
-    	return "gestion-recetas";
+    public String guardarReceta(@Valid @ModelAttribute("receta")Receta receta, BindingResult result, Model model) {
+    	if (result.hasErrors()) {
+			model.addAttribute("recetas", receta);
+			return "nueva-receta";
+    	} else {
+	    	recetaService.guardarReceta(receta);
+	    	model.addAttribute("recetas", recetaService.listarRecetas());
+	    	model.addAttribute("ingredientes", ingredienteService.listarIngredientes());
+	    	return "gestion-recetas";
+    	}
     }
 	
     
@@ -63,10 +70,16 @@ public class GestionRecetaController {
 	
     
     @PostMapping("/guardar-ingrediente")
-    public String guardarReceta(@ModelAttribute("ingrediente")Ingrediente ingrediente, Model model) {
-    	
-    	ingredienteService.guardarIngrediente(ingrediente);
-    	model.addAttribute("recetas", recetaService.listarRecetas());
-    	return "gestion-recetas";
+    public String guardarReceta(@Valid @ModelAttribute("ingrediente")Ingrediente ingrediente,BindingResult result, Model model) {
+    	if (result.hasErrors()) {
+			model.addAttribute("ingrediente", ingrediente);
+			model.addAttribute("recetas", recetaService.listarRecetas());
+			return "nuevo-ingrediente";
+    	} else {
+	    	ingredienteService.guardarIngrediente(ingrediente);
+	    	model.addAttribute("recetas", recetaService.listarRecetas());
+	    	model.addAttribute("ingredientes", ingredienteService.listarIngredientes());
+	    	return "gestion-recetas";
+    	}
     }
 }

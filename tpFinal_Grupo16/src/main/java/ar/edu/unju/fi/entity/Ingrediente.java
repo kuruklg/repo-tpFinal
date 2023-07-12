@@ -12,6 +12,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.AssertFalse;
+import jakarta.validation.constraints.NotNull;
 
 /** Clase ingrediente
  * 
@@ -34,6 +35,7 @@ public class Ingrediente {
 	/* Relacion muchos a uno */
 	@ManyToOne()
 	@JoinColumn(name = "rec_id")
+	@NotNull(message = "Debe seleccionar una receta")
 	private Receta receta;
 	
 	public Ingrediente() {}

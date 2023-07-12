@@ -15,11 +15,11 @@
 	<div class="container-fluid">
 		<div class="container m-auto">
 			<div class="formulario-receta">
-				<form th:action="@{/testimonios/guardar}" th:object="${testimonios}" method="POST">
+				<form th:action="@{/testimonios/guardar}" th:object="${testimonio}" method="POST">
 					<div class="col-sm-6">
 						
 						<div class="mb-3">
-						    <label for="comentario">ID:</label>
+						    <label for="id">ID:</label>
 					        <select class="form-select" id="usuario" name="usuario" th:field="*{usuario}">
 					            <option value="">Seleccione su ID</option>
 					            <option th:each="usu: ${usuarios}" th:value="${usu.id}" th:text="${usu.id}"></option>
